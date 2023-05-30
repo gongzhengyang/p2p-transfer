@@ -6,3 +6,17 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+clap = { version = "4.3.0", features = ["derive"] }
+async-std = { version = "1.12", features = ["attributes"] }
+async-trait = "0.1"
+env_logger = "0.10.0"
+futures = "0.3.28"
+libp2p = { path = "./rust-libp2p/libp2p", features = ["async-std", "dns", "noise", "macros", "ping", "tcp", "identify", "yamux", "relay", "gossipsub", "dcutr", "rendezvous","tokio"] }
+log = "0.4"
+futures-timer = "3.0"
+#this depencency is need to fix an error, details refer to `https://github.com/bluejekyll/trust-dns/issues/1946#issuecomment-1566202251`
+enum-as-inner = "=0.5.1"
+
+#[profile.release]
+#lto = true
+#strip = true
